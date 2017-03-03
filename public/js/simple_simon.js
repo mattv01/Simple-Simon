@@ -1,9 +1,18 @@
 // (function() {
 	"use strict";
 
+	//// Makes Title have a blinking effect ////
+	for (var i = 0; i < 100; i++) {
+		$("span").animate({
+			opacity: .4 
+		}, 1000).animate({
+			opacity: 1 
+		}, 1000)	
+	}
+
+
 	var usersColorSequence = [];
 	var simonsColorSequence = [];
-
 
 	$("#startGameBtn").click(function(){
 
@@ -15,20 +24,20 @@
 
 			for (var i = 1; i <= 4; i++) {
 				
-				var num = (Math.floor(Math.random()*4) + 1);
-	
+				var num = Math.ceil(Math.random()*4);
+
 				switch (num) {
 					case num = 1:
-						$("#redBox").animate({
-							opacity: .3 
+						$("#greenBox").animate({
+							opacity: .4 
 						}, 1000).animate({
 							opacity: 1 
 						}, 1000)
 						simonsColorSequence.push(1);
 					break;
 					case num = 2:
-						$("#blueBox").animate({
-							opacity: .3 
+						$("#redBox").animate({
+							opacity: .4 
 						}, 1000).animate({
 							opacity: 1 
 						}, 1000)
@@ -36,15 +45,15 @@
 					break;
 					case num = 3:
 						$("#yellowBox").animate({
-							opacity: .3 
+							opacity: .4 
 						}, 1000).animate({
 							opacity: 1 
 						}, 1000)
 						simonsColorSequence.push(3);
 					break;
 					case num = 4:
-						$("#greenBox").animate({
-							opacity: .3 
+						$("#blueBox").animate({
+							opacity: .4 
 						}, 1000).animate({
 							opacity: 1 
 						}, 1000)
@@ -59,13 +68,11 @@
 
 	$(".colorBox").click(function(){
 		$(this).animate({
-			opacity: .3 
-		}, 500).animate({
+			opacity: .4 
+		}, 300).animate({
 			opacity: 1 
-		}, 500)
+		}, 300)
 		usersColorSequence.push(parseInt(this.innerText));
 	});
 
-
 // })(); //end of IIFE
-

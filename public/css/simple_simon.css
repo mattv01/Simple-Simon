@@ -86,34 +86,71 @@ textarea {
 
 /*****************************   MOBILE STYLES   ********************************/
 
+body {
+	background-color: black;
+}
+
+h1 {
+	/*font-family: 'Patua One', cursive;*/
+	font-family: 'Bungee Shade', cursive;
+	font-size: 60px;
+	text-align: center;
+	margin: 8%;
+}
+
+.greenLetter {
+	color: green;
+}
+
+.redLetter {
+	color: red;
+}
+
+.yellowLetter {
+	color: yellow;
+}
+
+.blueLetter {
+	color: blue;
+}
+
 #startGameBtn {
 	margin: 1%;
 }
 
+main {
+	margin-left: 3%;
+}
+
 .colorBox {
-	margin: 10px;
-	height: 100px;
-	width: 100px;
+	margin: 5px;
+	height: 200px;
+	width: 45%;
 	float: left;
 }
+
 .colorBox:nth-child(3) {
 	clear: left;
 }
 
-#redBox {
-	background-color: red;
+#greenBox {
+	background-color: green;
+	color: green;
 }
 
-#blueBox {
-	background-color: blue;
+#redBox {
+	background-color: red;
+	color: red;
 }
 
 #yellowBox {
 	background-color: yellow;
+	color: yellow;
 }
 
-#greenBox {
-	background-color: green;
+#blueBox {
+	background-color: blue;
+	color: blue;
 }
 
 #tryAgainBtn {
@@ -121,7 +158,6 @@ textarea {
 	float: left;
 	clear: both;
 }
-
 
 /*****************************   END OF MOBILE STYLES   ********************************/
 
@@ -239,10 +275,20 @@ textarea {
 
 @media (min-width:768px) {
 
+h1 {
+	font-size: 100px;
+}
 
+main {
+	margin-left: 5%;
+}
 
-
-
+.colorBox {
+	margin: 10px;
+	height: 300px;
+	width: 45%;
+	float: left;
+}
 
 }
 /******************************   END OF TABLET STYLES   ********************************/
@@ -260,9 +306,18 @@ textarea {
 /*******************************   DESKTOP STYLES   *************************************/
 
 @media (min-width:940px) {
-	
 
+h1 {
+	margin: 2%;
+}
 
+main {
+	margin-left: 20%;
+}
+
+.colorBox {
+	width: 35%;
+}
 
 }
 /******************************  END OF DESKTOP STYLES   ********************************/
