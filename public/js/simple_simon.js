@@ -19,7 +19,8 @@
 
 		$("#startGameBtn").hide();
 		$("h1").html("Round " + (roundNumber += 1)).css({"font-family": "'Patua One', cursive", "color":"white"});
-
+		$("#roundNumber").hide();
+		$("#roundNumber").fadeIn();
 		
 		setTimeout(getSimonsSequence, 4000);
 
@@ -78,13 +79,17 @@
 			if (usersColorSequence.toString().indexOf(simonsColorSequence) >= 0){
 				$(".alert").show().fadeOut(2000).css({"font-size":"50px", "text-align":"center"});
 				setTimeout(function(){
-					$("h1").html("Round " + (roundNumber += 1));
+					$("h1").html("Round <span id='roundNumber'>"  + (roundNumber += 1) + "</span>");
+					$("#roundNumber").hide();
+					$("#roundNumber").fadeIn();
 				}, 3000);
 
 				usersColorSequence = [];
 				setTimeout(getSimonsSequence, 4000);
 			} 
-		});	
+		});
+
+
 	}); //closes click function for start game button	
 
 
