@@ -159,6 +159,10 @@ main {
 	clear: both;
 }
 
+.alert {
+	display: none;
+}
+
 /*****************************   END OF MOBILE STYLES   ********************************/
 
 
