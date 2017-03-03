@@ -2,7 +2,7 @@
 	"use strict";
 
 	//// Makes Title have a blinking effect ////
-	for (var i = 0; i < 100; i++) {
+	for (var i = 0; i < 1000; i++) {
 		$("span").animate({
 			opacity: .4 
 		}, 1000).animate({
@@ -15,14 +15,17 @@
 	var simonsColorSequence = [];
 
 	$("#startGameBtn").click(function(){
+		var roundNumber = 0;
 
 		$("#startGameBtn").hide();
+		$("h1").html("Round " + (roundNumber += 1)).css({"font-family": "'Patua One', cursive", "color":"white"});
 
-		setTimeout(getSimonsSequence, 2000);
+		
+		setTimeout(getSimonsSequence, 4000);
 
 		function getSimonsSequence(){
 
-			for (var i = 1; i <= 4; i++) {
+			for (var i = 1; i <= 2; i++) {
 				
 				var num = Math.ceil(Math.random()*4);
 
@@ -63,16 +66,26 @@
 			} //closes for loop
 		console.log(simonsColorSequence);
 		} //closes getSimonsSequence function
+
+		$(".colorBox").click(function(){
+			$(this).animate({
+				opacity: .4 
+			}, 200).animate({
+				opacity: 1 
+			}, 200)
+			usersColorSequence.push(parseInt(this.innerText));
+
+			if (usersColorSequence.toString().indexOf(simonsColorSequence) >= 0){
+				$(".alert").show().fadeOut(2000).css({"font-size":"50px", "text-align":"center"});
+				setTimeout(function(){
+					$("h1").html("Round " + (roundNumber += 1));
+				}, 3000);
+
+				usersColorSequence = [];
+				setTimeout(getSimonsSequence, 4000);
+			} 
+		});	
 	}); //closes click function for start game button	
 
-
-	$(".colorBox").click(function(){
-		$(this).animate({
-			opacity: .4 
-		}, 300).animate({
-			opacity: 1 
-		}, 300)
-		usersColorSequence.push(parseInt(this.innerText));
-	});
 
 // })(); //end of IIFE
