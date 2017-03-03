@@ -91,67 +91,73 @@ body {
 }
 
 h1 {
-	/*font-family: 'Patua One', cursive;*/
 	font-family: 'Bungee Shade', cursive;
 	font-size: 60px;
 	text-align: center;
 	margin: 8%;
 }
-
-.greenLetter {
-	color: green;
-}
-
-.redLetter {
-	color: red;
-}
-
-.yellowLetter {
-	color: yellow;
-}
-
-.blueLetter {
-	color: blue;
-}
+	.greenLetter {
+		color: green;
+	}
+	
+	.redLetter {
+		color: red;
+	}
+	
+	.yellowLetter {
+		color: yellow;
+	}
+	
+	.blueLetter {
+		color: blue;
+	}
 
 #startGameBtn {
-	margin: 1%;
+	margin: auto;
+	display: block;
+	background-color: honeydew;
+	width: 80%;
+	font-family: 'Patua One', cursive;
+	font-size: 30px;
+}
+
+.alert {
+	display: none;
 }
 
 main {
 	margin-left: 3%;
 }
-
-.colorBox {
-	margin: 5px;
-	height: 200px;
-	width: 45%;
-	float: left;
-}
-
-.colorBox:nth-child(3) {
-	clear: left;
-}
-
-#greenBox {
-	background-color: green;
-	color: green;
-}
-
-#redBox {
-	background-color: red;
-	color: red;
-}
-
-#yellowBox {
-	background-color: yellow;
-	color: yellow;
-}
-
-#blueBox {
-	background-color: blue;
-	color: blue;
-}
+	.colorBox {
+		margin: 5px;
+		height: 200px;
+		width: 45%;
+		float: left;
+		font-size: 1px;
+	}
+		.colorBox:nth-child(3) {
+			clear: left;
+		}
+	
+	#greenBox {
+		background-color: green;
+		color: green;
+	}
+	
+	#redBox {
+		background-color: red;
+		color: red;
+	}
+	
+	#yellowBox {
+		background-color: yellow;
+		color: yellow;
+	}
+	
+	#blueBox {
+		background-color: blue;
+		color: blue;
+	}
 
 #tryAgainBtn {
 	display: none;
@@ -159,9 +165,6 @@ main {
 	clear: both;
 }
 
-.alert {
-	display: none;
-}
 
 /*****************************   END OF MOBILE STYLES   ********************************/
 
@@ -286,13 +289,12 @@ h1 {
 main {
 	margin-left: 5%;
 }
-
-.colorBox {
-	margin: 10px;
-	height: 300px;
-	width: 45%;
-	float: left;
-}
+	.colorBox {
+		margin: 10px;
+		height: 300px;
+		width: 45%;
+		float: left;
+	}
 
 }
 /******************************   END OF TABLET STYLES   ********************************/
@@ -315,13 +317,22 @@ h1 {
 	margin: 2%;
 }
 
+#startGameBtn {
+	width: 50%;
+}
+
+.alert {
+	float: left;
+	width: 100%;
+}
+
 main {
 	margin-left: 20%;
 }
+	.colorBox {
+		width: 35%;
+	}
 
-.colorBox {
-	width: 35%;
-}
 
 }
 /******************************  END OF DESKTOP STYLES   ********************************/
