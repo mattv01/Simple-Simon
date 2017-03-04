@@ -94,7 +94,7 @@ h1 {
 	font-family: 'Bungee Shade', cursive;
 	font-size: 60px;
 	text-align: center;
-	margin: 8%;
+	margin: 5%;
 }
 	.greenLetter {
 		color: green;
@@ -114,15 +114,12 @@ h1 {
 
 #startGameBtn {
 	margin: auto;
+	margin-bottom: 2%;
 	display: block;
 	background-color: honeydew;
 	width: 80%;
 	font-family: 'Patua One', cursive;
 	font-size: 30px;
-}
-
-.alert {
-	display: none;
 }
 
 main {
@@ -158,6 +155,10 @@ main {
 		background-color: blue;
 		color: blue;
 	}
+
+.alert {
+	display: none;
+}
 
 #tryAgainBtn {
 	display: none;
@@ -314,16 +315,12 @@ main {
 @media (min-width:940px) {
 
 h1 {
-	margin: 2%;
+	margin: 0;
 }
 
 #startGameBtn {
+	margin: auto;
 	width: 50%;
-}
-
-.alert {
-	float: left;
-	width: 100%;
 }
 
 main {
