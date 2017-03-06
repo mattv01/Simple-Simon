@@ -26,8 +26,8 @@
 			var randomBoxNumber = Math.ceil(Math.random()*4);
 			simonsColorSequence.push(randomBoxNumber);
 			animate(simonsColorSequence);
-			console.log(simonsColorSequence);//DELETE WHEN GAME IS COMPLETELY FINISHED//
-		}
+			console.log(simonsColorSequence); //DELETE WHEN GAME IS COMPLETELY FINISHED//
+		};
 
 		function animate() {		
 			var i = 0;
@@ -64,7 +64,7 @@
 				}//closes switch statement
 				i++;
 			}, animateSpeedForSimon);//closes setInterval
-		}//closes animate function
+		};//closes animate function
 
 		$(".colorBox").click(function(){
 			$(this).animate({
@@ -75,9 +75,9 @@
 			usersColorSequence.push(parseInt(this.innerText));
 
 			if (usersColorSequence.toString().indexOf(simonsColorSequence) >= 0){
-				//tell user they got the sequence correct
+				//tell user they got the sequence correct...
 				$(".alert").show().fadeOut(2000).css({"font-size":"50px", "text-align":"center"});
-				//advance them to the next round
+				//...and advance them to the next round
 				nextRound();
 			}
 		});
@@ -104,14 +104,14 @@
 					animateSpeedForSimon -= 100; //speeds up simons sequence each round	
 					setTimeout(getSimonsSequence, 1000);
 				}, 2000);	
-			}//closes if statement
-		}//closes nextRound function
+			} //closes if statement
+		}; //closes nextRound function
 
 	}); //closes click function for start game button	
 
 	// reload game if user wants to play again after winning the game
 	$("#playAgainBtn").click(function(){
 		location.reload();
-	})
+	});
 
 // })(); //end of IIFE
