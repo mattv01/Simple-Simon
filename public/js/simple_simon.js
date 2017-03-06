@@ -1,96 +1,116 @@
 // (function() {
 	"use strict";
 
-	//// Makes Title have a blinking effect ////
+	//// Makes title have a blinking effect ////
 	for (var i = 0; i < 1000; i++) {
 		$("span").animate({
 			opacity: .4 
 		}, 1000).animate({
-			opacity: 1 
+			opacity: 5 
 		}, 1000)	
 	}
 
-
 	var usersColorSequence = [];
 	var simonsColorSequence = [];
+	var roundNumber = 1;
+	var animateSpeedForSimon = 1000;
 
 	$("#startGameBtn").click(function(){
-		var roundNumber = 0;
+		$(this).hide();
 
-		$("#startGameBtn").hide();
-		$("h1").html("Round " + (roundNumber += 1)).css({"font-family": "'Patua One', cursive", "color":"white"});
-		$("#roundNumber").hide();
-		$("#roundNumber").fadeIn();
+		$("h1").html("Round " + (roundNumber)).css({"font-family": "'Patua One', cursive", "color":"white", "margin":"2%"});
 		
-		setTimeout(getSimonsSequence, 4000);
+		setTimeout(getSimonsSequence, 2000);
 
 		function getSimonsSequence(){
+			var randomBoxNumber = Math.ceil(Math.random()*4);
+			simonsColorSequence.push(randomBoxNumber);
+			animate(simonsColorSequence);
+			console.log(simonsColorSequence);
+		}
 
-			for (var i = 1; i <= 2; i++) {
-				
-				var num = Math.ceil(Math.random()*4);
-
-				switch (num) {
-					case num = 1:
+		function animate() {		
+			for (var i = 0; i <= simonsColorSequence.length - 1; i++) {
+				switch (simonsColorSequence[i]) {
+					case 1:
 						$("#greenBox").animate({
-							opacity: .4 
-						}, 1000).animate({
+							opacity: .2 
+						}, animateSpeedForSimon).animate({
 							opacity: 1 
-						}, 1000)
-						simonsColorSequence.push(1);
+						}, animateSpeedForSimon)
 					break;
-					case num = 2:
+					case 2:
 						$("#redBox").animate({
-							opacity: .4 
-						}, 1000).animate({
+							opacity: .2 
+						}, animateSpeedForSimon).animate({
 							opacity: 1 
-						}, 1000)
-						simonsColorSequence.push(2);
+						}, animateSpeedForSimon)
 					break;
-					case num = 3:
+					case 3:
 						$("#yellowBox").animate({
-							opacity: .4 
-						}, 1000).animate({
+							opacity: .2 
+						}, animateSpeedForSimon).animate({
 							opacity: 1 
-						}, 1000)
-						simonsColorSequence.push(3);
+						}, animateSpeedForSimon)
 					break;
-					case num = 4:
+					case 4:
 						$("#blueBox").animate({
-							opacity: .4 
-						}, 1000).animate({
+							opacity: .2 
+						}, animateSpeedForSimon).animate({
 							opacity: 1 
-						}, 1000)
-						simonsColorSequence.push(4);
+						}, animateSpeedForSimon)
 					break;
-				} //closes switch case
-			} //closes for loop
-		console.log(simonsColorSequence);
-		} //closes getSimonsSequence function
+				}
+			}
+		}
 
 		$(".colorBox").click(function(){
 			$(this).animate({
 				opacity: .4 
-			}, 200).animate({
+			}, 100).animate({
 				opacity: 1 
-			}, 200)
+			}, 100)
 			usersColorSequence.push(parseInt(this.innerText));
 
 			if (usersColorSequence.toString().indexOf(simonsColorSequence) >= 0){
+				//tell user they got the sequence correct
 				$(".alert").show().fadeOut(2000).css({"font-size":"50px", "text-align":"center"});
-				setTimeout(function(){
-					$("h1").html("Round <span id='roundNumber'>"  + (roundNumber += 1) + "</span>");
-					$("#roundNumber").hide();
-					$("#roundNumber").fadeIn();
-				}, 3000);
-
-				usersColorSequence = [];
-				setTimeout(getSimonsSequence, 4000);
-			} 
+				//advance them to the next round
+				nextRound();
+			}
 		});
 
+		function nextRound(){
+			// if user beats round 10, they win the game and have a chance to play again
+			if(roundNumber == 10){
+				$("h1").html("You Win!!").css({"margin":"0px"});
+				setInterval(
+				function(){
+					$(".colorBox, h1").animate({
+						opacity: .4 
+					}, 1000).animate({
+						opacity: 1 
+					}, 1000)		
+				}, 2000);
+				$("#playAgainBtn").show().css({"display":"block"});
+			} else {
+				// show the user the level they are on now and show simons sequence faster
+				setTimeout(function(){
+					$("h1").html("Round <span id='fadeRoundNumber'>"  + (roundNumber += 1) + "</span>");
+					$("#fadeRoundNumber").hide().fadeIn();
+					usersColorSequence = [];
+					animateSpeedForSimon -= 100; //speeds up simons sequence each round	
+					setTimeout(getSimonsSequence, 1000);
+				}, 2000);	
+			}
+		}
 
 	}); //closes click function for start game button	
 
+
+	// reload game if user wants to play again after winning the game
+	$("#playAgainBtn").click(function(){
+		location.reload();
+	})
 
 // })(); //end of IIFE
