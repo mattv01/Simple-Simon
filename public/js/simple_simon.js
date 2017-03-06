@@ -26,43 +26,45 @@
 			var randomBoxNumber = Math.ceil(Math.random()*4);
 			simonsColorSequence.push(randomBoxNumber);
 			animate(simonsColorSequence);
-			console.log(simonsColorSequence);
+			console.log(simonsColorSequence);//DELETE WHEN GAME IS COMPLETELY FINISHED//
 		}
 
 		function animate() {		
-			for (var i = 0; i <= simonsColorSequence.length - 1; i++) {
+			var i = 0;
+			var interval = setInterval(function() { 
 				switch (simonsColorSequence[i]) {
 					case 1:
 						$("#greenBox").animate({
 							opacity: .2 
-						}, animateSpeedForSimon).animate({
+						}, (animateSpeedForSimon/2)).animate({
 							opacity: 1 
-						}, animateSpeedForSimon)
+						}, (animateSpeedForSimon/2))
 					break;
 					case 2:
 						$("#redBox").animate({
 							opacity: .2 
-						}, animateSpeedForSimon).animate({
+						}, (animateSpeedForSimon/2)).animate({
 							opacity: 1 
-						}, animateSpeedForSimon)
+						}, (animateSpeedForSimon/2))
 					break;
 					case 3:
 						$("#yellowBox").animate({
 							opacity: .2 
-						}, animateSpeedForSimon).animate({
+						}, (animateSpeedForSimon/2)).animate({
 							opacity: 1 
-						}, animateSpeedForSimon)
+						}, (animateSpeedForSimon/2))
 					break;
 					case 4:
 						$("#blueBox").animate({
 							opacity: .2 
-						}, animateSpeedForSimon).animate({
+						}, (animateSpeedForSimon/2)).animate({
 							opacity: 1 
-						}, animateSpeedForSimon)
+						}, (animateSpeedForSimon/2))
 					break;
-				}
-			}
-		}
+				}//closes switch statement
+				i++;
+			}, animateSpeedForSimon);//closes setInterval
+		}//closes animate function
 
 		$(".colorBox").click(function(){
 			$(this).animate({
@@ -102,11 +104,10 @@
 					animateSpeedForSimon -= 100; //speeds up simons sequence each round	
 					setTimeout(getSimonsSequence, 1000);
 				}, 2000);	
-			}
-		}
+			}//closes if statement
+		}//closes nextRound function
 
 	}); //closes click function for start game button	
-
 
 	// reload game if user wants to play again after winning the game
 	$("#playAgainBtn").click(function(){
