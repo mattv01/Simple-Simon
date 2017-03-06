@@ -112,7 +112,7 @@ h1 {
 		color: blue;
 	}
 
-#startGameBtn {
+#startGameBtn, #playAgainBtn {
 	margin: auto;
 	margin-bottom: 2%;
 	display: block;
@@ -121,6 +121,9 @@ h1 {
 	font-family: 'Patua One', cursive;
 	font-size: 30px;
 }
+	#playAgainBtn {
+		display: none;
+	}
 
 main {
 	margin-left: 3%;
@@ -159,13 +162,6 @@ main {
 .alert {
 	display: none;
 }
-
-#tryAgainBtn {
-	display: none;
-	float: left;
-	clear: both;
-}
-
 
 /*****************************   END OF MOBILE STYLES   ********************************/
 
@@ -318,7 +314,7 @@ h1 {
 	margin: 0;
 }
 
-#startGameBtn {
+#startGameBtn, #playAgainBtn {
 	margin: auto;
 	width: 50%;
 }
@@ -329,7 +325,6 @@ main {
 	.colorBox {
 		width: 35%;
 	}
-
 
 }
 /******************************  END OF DESKTOP STYLES   ********************************/
