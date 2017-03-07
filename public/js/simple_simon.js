@@ -87,7 +87,10 @@ $(document).ready(function(){
 			opacity: 1 
 		}, 100)
 		usersColorSequence.push(parseInt(this.innerText));
+		checkUsersInput();
+	};
 
+	function checkUsersInput(){
 		if (usersColorSequence.toString().indexOf(simonsColorSequence) >= 0){
 			$(".alert").show().fadeOut(2000).css({"font-size":"50px", "text-align":"center"}); //tell user they got the sequence correct...
 			nextRound(); //...and advance them to the next round
