@@ -29,21 +29,8 @@ $(document).ready(function(){
 		$(this).hide();
 		showNewRoundNumber();
 		setTimeout(getSimonsSequence, 1000);
-
-		$(".colorBox").click(function(){
-			$(this).animate({
-				opacity: .4 
-			}, 100).animate({
-				opacity: 1 
-			}, 100)
-			usersColorSequence.push(parseInt(this.innerText));
-
-			if (usersColorSequence.toString().indexOf(simonsColorSequence) >= 0){
-				$(".alert").show().fadeOut(2000).css({"font-size":"50px", "text-align":"center"}); //tell user they got the sequence correct...
-				nextRound(); //...and advance them to the next round
-			}
-		});
-	}; //closes startGame function	
+		$(".colorBox").click(UsersInput);
+	};
 
 	function showNewRoundNumber(){
 		$("h1").html("Round <span id='fadeInNewRoundNumber'>"  + (roundNumber += 1) + "</span>").css({"font-family": "'Patua One', cursive", "color":"white", "margin":"2%"});
@@ -91,6 +78,20 @@ $(document).ready(function(){
 			};
 			i++;
 		}, animateSpeedForSimon);
+	};
+
+	function UsersInput(){
+		$(this).animate({
+			opacity: .4 
+		}, 100).animate({
+			opacity: 1 
+		}, 100)
+		usersColorSequence.push(parseInt(this.innerText));
+
+		if (usersColorSequence.toString().indexOf(simonsColorSequence) >= 0){
+			$(".alert").show().fadeOut(2000).css({"font-size":"50px", "text-align":"center"}); //tell user they got the sequence correct...
+			nextRound(); //...and advance them to the next round
+		}
 	};
 
 	function nextRound(){	
