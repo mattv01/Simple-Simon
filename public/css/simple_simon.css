@@ -134,6 +134,7 @@ main {
 		width: 45%;
 		float: left;
 		font-size: 1px;
+		border-radius: 5%;
 	}
 		.colorBox:nth-child(3) {
 			clear: left;
