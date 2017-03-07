@@ -7,7 +7,7 @@ $(document).ready(function(){
 			opacity: .4 
 		}, 1000).animate({
 			opacity: 5 
-		}, 1000)
+		}, 1000);
 	}
 
 	var usersColorSequence = [];
@@ -85,7 +85,7 @@ $(document).ready(function(){
 			opacity: .4 
 		}, 100).animate({
 			opacity: 1 
-		}, 100)
+		}, 100);
 		usersColorSequence.push(parseInt(this.innerText));
 		checkUsersInput();
 	};
@@ -110,12 +110,12 @@ $(document).ready(function(){
 		usersColorSequence = [];
 		animateSpeedForSimon -= 100; //speeds up simons sequence each round
 		setTimeout(getSimonsSequence, 1000);
-	}
+	};
 
 	function userWonGame(){
 		setInterval(animateGameWonScreen, 500);
 		playAgain();
-	}
+	};
 
 	function animateGameWonScreen(){
 		$("h1").html("You Win!!").css({"margin":"0px"});
@@ -123,14 +123,14 @@ $(document).ready(function(){
 			opacity: .4
 		}, 1000).animate({
 			opacity: 1
-		}, 1000)
+		}, 1000);
 		$("#playAgainBtn").show().css({"display":"block"});
-	}
+	};
 
 	function playAgain(){
 		$("#playAgainBtn").click(function(){
 			location.reload(); //reload game if user clicks 'Play Again' button after winning the game
 		});
-	}
+	};
 
 });
