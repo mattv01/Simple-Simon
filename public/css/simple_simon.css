@@ -126,7 +126,7 @@ h1 {
 	}
 
 main {
-	margin-left: 3%;
+	margin-left: 5%;
 }
 	.colorBox {
 		margin: 5px;
@@ -283,15 +283,12 @@ h1 {
 	font-size: 100px;
 }
 
-main {
-	margin-left: 5%;
+.colorBox {
+	margin: 10px;
+	height: 300px;
+	width: 45%;
+	float: left;
 }
-	.colorBox {
-		margin: 10px;
-		height: 300px;
-		width: 45%;
-		float: left;
-	}
 
 }
 /******************************   END OF TABLET STYLES   ********************************/
