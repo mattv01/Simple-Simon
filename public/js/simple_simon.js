@@ -15,7 +15,18 @@
 	var roundNumber = 1;
 	var animateSpeedForSimon = 1000;
 
-	$("#startGameBtn").click(function(){
+	//start game by pressing enter...
+	$(document).keydown(function(key) {
+		if(key.keyCode == 13){
+			startGame();
+			$("#startGameBtn").hide();
+		}
+	}); 
+	//...or by clicking the 'Start Game' button
+	$("#startGameBtn").click(startGame);
+
+
+	function startGame(){
 		$(this).hide();
 
 		$("h1").html("Round " + (roundNumber)).css({"font-family": "'Patua One', cursive", "color":"white", "margin":"2%"});
@@ -107,7 +118,7 @@
 			} //closes if statement
 		}; //closes nextRound function
 
-	}); //closes click function for start game button	
+	}; //closes startGame function	
 
 	// reload game if user wants to play again after winning the game
 	$("#playAgainBtn").click(function(){
