@@ -7,7 +7,7 @@ $(document).ready(function(){
 			opacity: .4 
 		}, 1000).animate({
 			opacity: 5 
-		}, 1000)	
+		}, 1000)
 	}
 
 	var usersColorSequence = [];
@@ -43,36 +43,36 @@ $(document).ready(function(){
 		animateSimonsSequence(simonsColorSequence);
 	};
 
-	function animateSimonsSequence() {		
+	function animateSimonsSequence() {
 		var i = 0;
 		var interval = setInterval(function() { 
 			switch (simonsColorSequence[i]) {
 				case 1:
 					$("#greenBox").animate({
-						opacity: .2 
+						opacity: .2
 					}, (animateSpeedForSimon/2)).animate({
-						opacity: 1 
+						opacity: 1
 					}, (animateSpeedForSimon/2));
 				break;
 				case 2:
 					$("#redBox").animate({
-						opacity: .2 
+						opacity: .2
 					}, (animateSpeedForSimon/2)).animate({
-						opacity: 1 
+						opacity: 1
 					}, (animateSpeedForSimon/2));
 				break;
 				case 3:
 					$("#yellowBox").animate({
-						opacity: .2 
+						opacity: .2
 					}, (animateSpeedForSimon/2)).animate({
-						opacity: 1 
+						opacity: 1
 					}, (animateSpeedForSimon/2));
 				break;
 				case 4:
 					$("#blueBox").animate({
-						opacity: .2 
+						opacity: .2
 					}, (animateSpeedForSimon/2)).animate({
-						opacity: 1 
+						opacity: 1
 					}, (animateSpeedForSimon/2));
 				break;
 			};
@@ -97,30 +97,40 @@ $(document).ready(function(){
 		}
 	};
 
-	function nextRound(){	
-		if(roundNumber == 10){ //if it's round 10 and the user beats it, they win the game and the button to play again is shown...
-			$("h1").html("You Win!!").css({"margin":"0px"});
-			setInterval(function(){
-				$(".colorBox, h1").animate({
-					opacity: .4 
-				}, 1000).animate({
-					opacity: 1 
-				}, 1000)		
-			}, 2000);
-			$("#playAgainBtn").show().css({"display":"block"});
-		} else { //...else show the user the new level number they are now on
-			setTimeout(function(){
-				showNewRoundNumber();
-				usersColorSequence = [];
-				animateSpeedForSimon -= 100; //speeds up simons sequence each round	
-				setTimeout(getSimonsSequence, 1000);
-			}, 2000);	
+	function nextRound(){
+		if(roundNumber == 10){ //if it's round 10 and the user beats it, they win the game...
+			setTimeout(userWonGame, 500);
+		} else { //...else show the user the new level number they are on
+			setTimeout(newRound, 2000);
 		}
 	};
 
-	// reload game if user clicks 'Play Again' button after winning the game
-	$("#playAgainBtn").click(function(){
-		location.reload();
-	});
+	function newRound(){
+		showNewRoundNumber();
+		usersColorSequence = [];
+		animateSpeedForSimon -= 100; //speeds up simons sequence each round
+		setTimeout(getSimonsSequence, 1000);
+	}
+
+	function userWonGame(){
+		setInterval(animateGameWonScreen, 500);
+		playAgain();
+	}
+
+	function animateGameWonScreen(){
+		$("h1").html("You Win!!").css({"margin":"0px"});
+		$(".colorBox, h1").animate({
+			opacity: .4
+		}, 1000).animate({
+			opacity: 1
+		}, 1000)
+		$("#playAgainBtn").show().css({"display":"block"});
+	}
+
+	function playAgain(){
+		$("#playAgainBtn").click(function(){
+			location.reload(); //reload game if user clicks 'Play Again' button after winning the game
+		});
+	}
 
 });
