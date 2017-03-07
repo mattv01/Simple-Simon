@@ -91,9 +91,12 @@ $(document).ready(function(){
 	};
 
 	function checkUsersInput(){
-		if (usersColorSequence.toString().indexOf(simonsColorSequence) >= 0){
+		if (usersColorSequence[usersColorSequence.length - 1] !== simonsColorSequence[usersColorSequence.length - 1]){
+			setInterval(animateLostGameScreen, 500);
+			tryAgain();
+		} else if (usersColorSequence.toString().indexOf(simonsColorSequence) >= 0){
 			$(".alert").show().fadeOut(2000).css({"font-size":"50px", "text-align":"center"}); //tell user they got the sequence correct...
-			nextRound(); //...and advance them to the next round
+			nextRound(); //...and advance them to the next round		
 		}
 	};
 
@@ -130,6 +133,22 @@ $(document).ready(function(){
 	function playAgain(){
 		$("#playAgainBtn").click(function(){
 			location.reload(); //reload game if user clicks 'Play Again' button after winning the game
+		});
+	};
+
+	function animateLostGameScreen(){
+		$("h1").html("You Lose").css({"margin":"0px"});
+		$(".colorBox, h1").animate({
+			opacity: .4
+		}, 1000).animate({
+			opacity: 1
+		}, 1000);
+		$("#tryAgainBtn").show().css({"display":"block"});
+	};
+
+	function tryAgain(){
+		$("#tryAgainBtn").click(function(){
+			location.reload();
 		});
 	};
 

@@ -26,7 +26,7 @@ h1 {
 		color: blue;
 	}
 
-#startGameBtn, #playAgainBtn {
+#startGameBtn, #playAgainBtn, #tryAgainBtn {
 	margin: auto;
 	margin-bottom: 2%;
 	display: block;
@@ -35,7 +35,7 @@ h1 {
 	font-family: 'Patua One', cursive;
 	font-size: 30px;
 }
-	#playAgainBtn {
+	#playAgainBtn, #tryAgainBtn {
 		display: none;
 	}
 
@@ -114,7 +114,7 @@ h1 {
 	margin: 0;
 }
 
-#startGameBtn, #playAgainBtn {
+#startGameBtn, #playAgainBtn, #tryAgainBtn {
 	margin: auto;
 	width: 50%;
 }
