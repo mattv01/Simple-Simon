@@ -95,8 +95,6 @@ h1 {
 .colorBox {
 	margin: 10px;
 	height: 300px;
-	width: 45%;
-	float: left;
 }
 
 }
@@ -115,7 +113,6 @@ h1 {
 }
 
 #startGameBtn, #playAgainBtn, #tryAgainBtn {
-	margin: auto;
 	width: 50%;
 }
 
