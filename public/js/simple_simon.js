@@ -92,17 +92,17 @@ $(document).ready(function(){
 
 	function checkUsersInput(){
 		if (usersColorSequence[usersColorSequence.length - 1] !== simonsColorSequence[usersColorSequence.length - 1]){
-			setInterval(animateLostGameScreen, 500);
+			setInterval(animateLostGameScreen, 200);
 			tryAgain();
 		} else if (usersColorSequence.toString().indexOf(simonsColorSequence) >= 0){
-			$(".alert").show().fadeOut(2000).css({"font-size":"50px", "text-align":"center"}); //tell user they got the sequence correct...
+			$(".alert").show().fadeOut(1000).css({"font-size":"50px", "text-align":"center"}); //tell user they got the sequence correct...
 			nextRound(); //...and advance them to the next round		
 		}
 	};
 
 	function nextRound(){
 		if(roundNumber == 10){ //if it's round 10 and the user beats it, they win the game...
-			setTimeout(userWonGame, 500);
+			setTimeout(userWonGame, 200);
 		} else { //...else show the user the new level number they are on
 			setTimeout(newRound, 2000);
 		}
